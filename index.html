@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.min.css">
+    <style media="screen">
+      .ng-touched.ng-valid {
+        border: 2px green solid;
+      }
+      .ng-touched.ng-invalid {
+        border: 2px red solid;
+      }
+      .span-warning{
+        color: red ;
+        font-weight: bold;
+      }
+      h5{
+        color: #5F9EA0 ;
+        font-family: sans-serif;
+      }
+      .container {
+        padding-bottom: 20px;
+      }
+      .form-group{
+        margin-bottom : 20px!important ;
+      }
+    </style>
+    <script src="lib/angular.min.js" charset="utf-8"></script>
+    <script src="bower_components/angularjs-slider/dist/rzslider.min.js" charset="utf-8"></script>
+    <script src="lib/angular-ui-router.min.js" charset="utf-8"></script>
+    <script src="src/index.js" charset="utf-8"></script>
+    <title>website pricing calculator</title>
+  </head>
+  <body ng-app="calcApp">
+    <ui-view></ui-view>
+  </body>
+  <script src="src/services/pricing.service.js" charset="utf-8"></script>
+  <script src="src/services/mail.service.js" charset="utf-8"></script>
+  <script src="src/components/info.component.js" charset="utf-8"></script>
+  <script src="src/components/calculate.component.js" charset="utf-8"></script>
+  <script src="src/components/statistics.component.js" charset="utf-8"></script>
+  <script src="src/routes.js" charset="utf-8"></script>
+</html>

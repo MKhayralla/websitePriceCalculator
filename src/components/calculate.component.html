@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-8 col-lg-push-2">
+      <h1>tell us your specifications :</h1><hr>
+      <h5>NUMBER OF PAGES:</h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.pn" rz-slider-options="$ctrl.options1"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.page_num}}</label>
+        </div>
+      </div>
+      <h5>STYLE OF DESIGN:</h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.ds" rz-slider-options="$ctrl.options3"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.design}}</label>
+        </div>
+      </div>
+      <h5>COPYWRITING # OF PAGES:</h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.cnp" rz-slider-options="$ctrl.options1"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.cnp}}</label>
+        </div>
+      </div>
+      <h5>SEO w/ PLACEMENT GUARANTEE:</h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.seo" rz-slider-options="$ctrl.options1"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.seo}}</label>
+        </div>
+      </div>
+      <h5>RESPONSIVE DESIGN:</h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.rd" rz-slider-options="$ctrl.options2"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.rd}}</label>
+        </div>
+      </div>
+      <h5>DATABASE INTEGRATION:</h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.db" rz-slider-options="$ctrl.options1"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.db}}</label>
+        </div>
+      </div>
+      <h5>E-COMMERCE FUNCTIONALITY:</h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.ec" rz-slider-options="$ctrl.options1"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.ec}}</label>
+        </div>
+      </div>
+      <h5>CMS : </h5>
+      <div class="row">
+        <div class="col-xs-8">
+          <rzslider rz-slider-model="$ctrl.inputs.cms" rz-slider-options="$ctrl.options1"></rzslider>
+        </div>
+        <div class="col-xs-4">
+          <label>{{$ctrl.labels.cms}}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-push-4">
+          <button type="button" class="btn btn-success btn-lg" ng-click="$ctrl.calc()" ui-sref="info">proceed</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
