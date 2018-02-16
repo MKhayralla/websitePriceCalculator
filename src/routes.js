@@ -6,16 +6,8 @@
   function routesConfig($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-    .state('home',{
-      url : '/',
-      templateUrl : 'src/home.html'
-    })
-    .state('info',{
-      url : '/info' ,
-      template : '<info></info>'
-    })
     .state('calculate',{
-      url : '/calculate' ,
+      url : '/',
       template : '<calculate></calculate>'
     })
     .state('statistics',{
