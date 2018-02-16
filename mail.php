@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['submit'])) {
-$to = "gonfreecs303@gmail.com";
+$to = "mahmoudkhayralla@gmail.com";
 $subject = "web quote";
 $name_field = $_POST['name'];
 $email_field = $_POST['email'];
