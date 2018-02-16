@@ -153,5 +153,92 @@
         return element.key === cms ;
       }).label ;
     } ;
+    service.getPn = ()=>{
+      return service.data.page_num.find((element)=>{
+        return element.key === service.inputs.page_num ;
+      }) ;
+    } ;
+    service.getdS = ()=>{
+      return service.data.design_style.find((element)=>{
+        return element.key === service.inputs.design_style ;
+      }) ;
+    } ;
+    service.getCn = ()=>{
+      return service.data.compywriting_num_pages.find((element)=>{
+        return element.key === service.inputs.compywriting_num_pages ;
+      }) ;
+    } ;
+    service.getSe = ()=>{
+      return service.data.seo.find((element)=>{
+        return element.key === service.inputs.seo ;
+      }) ;
+    } ;
+    service.getRe = ()=>{
+      return service.data.responsive_design.find((element)=>{
+        return element.key === service.inputs.responsive_design ;
+      }) ;
+    } ;
+    service.getD = ()=>{
+      return service.data.db_integration.find((element)=>{
+        return element.key === service.inputs.db_integration ;
+      }) ;
+    } ;
+    service.getEC = ()=>{
+      return service.data.e_commerce.find((element)=>{
+        return element.key === service.inputs.e_commerce ;
+      }) ;
+    } ;
+    service.getCm = ()=>{
+      return service.data.cms.find((element)=>{
+        return element.key === service.inputs.cms ;
+      }) ;
+    } ;
+    service.getQuote = () => {
+      return `Number of pages: ${service.getPnum(service.inputs.page_num)} \n
+Style of design: ${service.getdStyle(service.inputs.design_style)}\n
+Copywriting # of pages: ${service.getCnp(service.inputs.compywriting_num_pages)}\n
+SEO w/ Placement Guarantee: ${service.getSeo(service.inputs.seo)}\n
+Responsive Design: ${service.getRes(service.inputs.responsive_design)}\n
+Database Integration: ${service.getDb(service.inputs.db_integration)}\n
+e-Commerce Functionality: ${service.getECommerce(service.inputs.e_commerce)}\n
+CMS: ${service.getCms(service.inputs.cms)}\n
+`
+    } ;
+    service.getTableArray = () => {
+      var table = [] ;
+      var element1 = {} ;
+      element1.genre = 'NUMBER OF PAGES:' ;
+      element1.choice = service.getPn() ;
+      table.push(element1) ;
+      var element2 = {} ;
+      element2.genre = 'STYLE OF DESIGN:' ;
+      element2.choice = service.getdS() ;
+      table.push(element2) ;
+      var element3 = {} ;
+      element3.genre = 'COPYWRITING # OF PAGES:' ;
+      element3.choice = service.getCn() ;
+      table.push(element3) ;
+      var element4 = {} ;
+      element4.genre = 'SEO w/ PLACEMENT GUARANTEE:' ;
+      element4.choice = service.getSe() ;
+      table.push(element4) ;
+      var element5 = {} ;
+      element5.genre = 'RESPONSIVE DESIGN:' ;
+      element5.choice = service.getRe() ;
+      table.push(element5) ;
+      var element6 = {} ;
+      element6.genre = 'DATABASE INTEGRATION:' ;
+      element6.choice = service.getD() ;
+      table.push(element6) ;
+      var element7 = {} ;
+      element7.genre = 'E-COMMERCE FUNCTIONALITY:' ;
+      element7.choice = service.getEC() ;
+      table.push(element7) ;
+      var element8 = {} ;
+      element8.genre = 'CMS :' ;
+      element8.choice = service.getCm() ;
+      table.push(element8) ;
+      return table ;
+    }
 }) ;
 })()

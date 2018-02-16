@@ -1,10 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <div class="row">
-        <h5>Estimated Cost : </h5>
-        <h2>{{$ctrl.cost.min}}$ - {{$ctrl.cost.max}}$</h2>
-      </div>
+      <button type="button" name="button" class="btn btn-warning back" ui-sref="calculate">get another quote</button>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1">
+      <table class="table table-responsive table-striped">
+        <thead>
+          <tr>
+            <td style="width : 30%"></td>
+            <td style="width : 30%"></td>
+            <td style="width : 20%">LOW</td>
+            <td style="width : 20%">High</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in $ctrl.table">
+            <td style="width : 30%">{{item.genre}}</td>
+            <td style="width : 30%">{{item.choice.label}}</td>
+            <td style="width : 20%" class="min">{{item.choice.min}}</td>
+            <td style="width : 20%" class="max">{{item.choice.max}}</td>
+          </tr>
+          <tr>
+            <td style="width : 30%"></td>
+            <td style="width : 30%">total cost</td>
+            <td style="width : 20%" class="cost">{{$ctrl.cost.min}}</td>
+            <td style="width : 20%" class="cost">{{$ctrl.cost.max}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-10 col-xs-offset-1">
       <div class="row" ng-if="!$ctrl.saleApplied">
         <div class="col-xs-12 alert alert-success">
           Apply one of our awesome discounts
@@ -27,31 +52,55 @@
         </div>
       </div>
       <hr>
+      <p>Please complete the web form below for an exact project quote</p>
       <div class="row">
-        <div class="col-xs-6 col-xs-push-3">
-          <form action="https://formspree.io/mahmoudkhayralla@gmail.com" method="post">
-            <div hidden="true">
-              <input type="text" name="name" ng-model="$ctrl.contact.name">
-              <input type="email" name="email" ng-model="$ctrl.contact.email">
-              <input type="text" name="phone" ng-model="$ctrl.contact.phone">
-              <input type="text" name="company" ng-model="$ctrl.contact.company">
-              <input type="text" name="message" ng-model="$ctrl.contact.message">
-              <input type="text" name="num_pages" ng-model="$ctrl.quote.page_num">
-              <input type="text" name="design_style" ng-model="$ctrl.quote.design">
-              <input type="text" name="compywriting_num_pages" ng-model="$ctrl.quote.cnp">
-              <input type="text" name="SEO" ng-model="$ctrl.quote.seo">
-              <input type="text" name="responsive_design" ng-model="$ctrl.quote.rd">
-              <input type="text" name="db_integration" ng-model="$ctrl.quote.db">
-              <input type="text" name="e_commerce" ng-model="$ctrl.quote.ec">
-              <input type="text" name="cms" ng-model="$ctrl.quote.cms">
-              <input type="number" name="minimum_cost" ng-model="$ctrl.cost.min">
-              <input type="number" name="maximum_cost" ng-model="$ctrl.cost.max">
-              <input type="number" name="minimum_cost_after" ng-model="$ctrl.sale.min">
-              <input type="number" name="maximum_cost_after" ng-model="$ctrl.sale.max">
-
+        <div class="col-xs-8 col-xs-push-2">
+          <form class="form-horizontal" novalidate name="infoForm" action="mail.php">
+            <div class="form-group">
+              <label for="name">name : </label> <span class="span-warning">*</span>
+              <input required name="name"
+              minlength="4" type="text" ng-model="$ctrl.info.name" class="form-control" id="name" placeholder="name">
+              <span ng-if="(infoForm.name.$error.required)&&(infoForm.name.$touched)"
+                        class="span-warning">
+                     * required !
+              </span>
+              <span ng-if="infoForm.name.$error.minlength && infoForm.name.$touched"
+                         class="span-warning">
+                     name must be at least 4 characters
+              </span>
             </div>
-            <input type="submit" class="btn btn-success btn-lg" value="send application details">
-
+            <div class="form-group">
+              <label for="email">email : </label> <span class="span-warning">*</span>
+              <input required type="email" ng-model="$ctrl.info.email" class="form-control" id="email"
+              name="email" placeholder="example@example.com">
+              <span class="span-warning"
+                ng-if="infoForm.email.$invalid && infoForm.email.$touched">
+                *must be a valid email address</span>
+            </div>
+            <div class="form-group">
+              <label for="number">phone number : </label>
+              <input type="text" ng-model="$ctrl.info.phone" class="form-control" id="number"
+              name="phone" placeholder="###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})">
+              <span class="span-warning"
+                ng-if="infoForm.phone.$invalid && infoForm.phone.$touched">
+                *must be a valid phone number (###-###-####)</span>
+            </div>
+            <div class="form-group">
+              <label for="company">company : </label>
+              <input type="text" ng-model="$ctrl.info.company" class="form-control"
+              name="company" id="company" placeholder="company">
+            </div>
+            <div class="form-group">
+              <label for="message">Quote details</label>
+              <textarea ng-model="$ctrl.quote" class="form-control" id="message" placeholder="message"
+              style="min-height : 200px;" required name="message"></textarea>
+              <span ng-if="(infoForm.message.$error.required)&&(infoForm.message.$touched)"
+                        class="span-warning">
+                     * required !
+              </span>
+            </div>
+            <input type="submit" name="submit" value="get detailed quote"
+            ng-disabled="infoForm.$invalid"class="btn btn-warning btn-lg">
           </form>
         </div>
       </div>

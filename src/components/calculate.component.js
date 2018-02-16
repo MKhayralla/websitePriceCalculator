@@ -42,7 +42,6 @@
       floor : 1
       ,ceil : 4
       ,step : 1
-      ,showTicks: true
       ,hideLimitLabels: true
       ,hidePointerLabels: true
       ,onChange : ctrl.setLabels
@@ -51,7 +50,6 @@
       floor : 1
       ,ceil : 2
       ,step : 1
-      ,showTicks: true
       ,hideLimitLabels: true
       ,hidePointerLabels: true
       ,onChange : ctrl.setLabels
@@ -60,15 +58,14 @@
       floor : 1
       ,ceil : 5
       ,step : 1
-      ,showTicks: true
       ,hideLimitLabels: true
       ,hidePointerLabels: true
       ,onChange : ctrl.setLabels
     } ;
     ctrl.calc = ()=>{
       pricingService.setInputs(ctrl.inputs) ;
+      mailService.setQuote(pricingService.getQuote()) ;
       pricingService.calculate() ;
-      mailService.setQuote(ctrl.labels);
       mailService.setCost() ;
     } ;
   }

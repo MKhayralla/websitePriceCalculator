@@ -11,8 +11,9 @@
     ctrl.cost = pricingService.cost ;
     ctrl.sale = ctrl.cost ;
     ctrl.saleApplied = false ;
-    ctrl.contact = mailService.info ;
+    ctrl.info = {} ;
     ctrl.quote = mailService.quote ;
+    ctrl.table = pricingService.getTableArray();
     ctrl.setSale = (discount) => {
       pricingService.setDiscount(discount) ;
       mailService.setSale() ;
