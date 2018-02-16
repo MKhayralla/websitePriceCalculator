@@ -11,7 +11,11 @@ $company = $_POST['company'];
 $body = "From: $name_field\n E-Mail: $email_field\n Message:\n $message\n phone:\n $phone\n company:\n $company";
 
 echo "Data has been submitted to $to!";
-mail($to, $subject, $body);
+if(mail($to, $subject, $body)){
+  header('Location: index.html');}
+else {
+  echo"check your server mail settings" ; 
+}
 } else {
 echo "blarg!";
 }
